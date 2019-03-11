@@ -18,7 +18,7 @@ export class NgxValidators {
     const hasUpper = /[A-Z]/.test(control.value);
     const hasLower = /[a-z]/.test(control.value);
     // console.log('Num, Upp, Low', hasNumber, hasUpper, hasLower);
-    const valid = hasNumber && hasUpper && hasLower;
+    const valid = hasNumber && hasUpper && hasLower && control.value.length > 7;
     if (!valid) {
       // return what´s not valid
       return {strongPasswordError: true};
