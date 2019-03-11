@@ -1,0 +1,9 @@
+<div class="note note-error" *ngIf="control?.touched">
+    <span *ngIf="control.hasError('required')">Field is required</span>
+    <span *ngIf="control.hasError('email')">The email is invalid</span>
+    <span *ngIf="control.hasError('min')">The value is too small</span>
+    <span *ngIf="control.hasError('max')">The value is too large</span>
+    <span *ngIf="control.hasError('minlength')">The field is too short</span>
+    <span *ngIf="control.hasError('maxlength')">Maximum of 35 characters</span>
+  <span *ngIf="control.hasError('isNumberError')">Only number and '+', '-', '.' allowed</span>
+</div>

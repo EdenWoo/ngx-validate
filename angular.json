@@ -133,6 +133,41 @@
           }
         }
       }
+    },
+    "ngx-validate": {
+      "root": "projects/ngx-validate",
+      "sourceRoot": "projects/ngx-validate/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-validate/tsconfig.lib.json",
+            "project": "projects/ngx-validate/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-validate/src/test.ts",
+            "tsConfig": "projects/ngx-validate/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-validate/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-validate/tsconfig.lib.json",
+              "projects/ngx-validate/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-validate-lib"
