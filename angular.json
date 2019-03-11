@@ -145,6 +145,11 @@
           "options": {
             "tsConfig": "projects/ngx-validate/tsconfig.lib.json",
             "project": "projects/ngx-validate/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/ngx-validate/ng-package.prod.json"
+            }
           }
         },
         "test": {
