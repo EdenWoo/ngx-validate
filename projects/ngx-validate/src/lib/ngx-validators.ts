@@ -44,7 +44,7 @@ export class NgxValidators {
     let thisControl: FormControl;
     let inputControl: FormControl;
 
-    return function clearingCodeRequiredValidate(control: FormControl) {
+    return function validate(control: FormControl) {
 
       if (!control.parent) {
         return null;
@@ -70,6 +70,46 @@ export class NgxValidators {
         return {matchPasswordError: true};
       }
 
+      return null;
+    };
+  }
+
+
+  /**
+   * This control is required if the input control has value.
+   * */
+  static requiredIfInputHasValue(inputControlName: string) {
+
+    let thisControl: FormControl;
+    let inputControl: FormControl;
+
+    return function validate(control: FormControl) {
+
+      if (!control.parent) {
+        return null;
+      }
+
+      // Initializing the validator.
+      if (!thisControl) {
+        thisControl = control;
+        inputControl = control.parent.get(inputControlName) as FormControl;
+        if (!inputControl) {
+          throw new Error('matchOtherValidator(): other control is not found in parent group');
+        }
+        inputControl.valueChanges.subscribe(() => {
+          thisControl.updateValueAndValidity();
+        });
+      }
+
+      if (!inputControl) {
+        return null;
+      }
+
+      if (inputControl.value !== '' && (thisControl.value === '' || thisControl.value === undefined)) {
+        return {
+          required: true
+        };
+      }
       return null;
     };
   }
