@@ -114,4 +114,25 @@ export class NgxValidators {
     };
   }
 
+
+  /**
+   * only allow letters/numbers
+   * */
+  static numberLetterOnly(control: FormControl): { [key: string]: any } {
+    const regexp = /^[a-zA-Z0-9]*$/;
+    if (control.value && !regexp.test(control.value)) {
+      return {numberLetterOnlyError: true};
+    }
+  }
+
+  /**
+   * only allow letters/numbers/space
+   * */
+  static numberLetterSpaceOnly(control: FormControl): { [key: string]: any } {
+    const regexp = /^[A-Za-z0-9 _]*$/;
+    if (control.value && !regexp.test(control.value)) {
+      return {numberLetterSpace: true};
+    }
+  }
+
 }
