@@ -125,7 +125,6 @@ export class NgxValidators {
    * */
   static numberLetterOnly(control: FormControl): ValidationResult {
     const regexp = /^[a-zA-Z0-9]*$/;
-    debugger
     if (control.value && !regexp.test(control.value)) {
       return {numberLetterOnlyError: true};
     }
