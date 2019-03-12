@@ -21,11 +21,16 @@ export class AppComponent {
     this.myForm = this.formBuiler.group({
       name: new FormControl(null, {validators: [Validators.required]}
       ),
-      number: new FormControl(null,
+      number: new FormControl('abcd',
         {validators: [Validators.required, NgxValidators.isNumber]}
       ),
       password: new FormControl(null,
-        {validators: NgxValidators.strongPassword}),
+        {
+          validators: [
+            Validators.required,
+            NgxValidators.strongPassword
+          ]
+        }),
       repeatPassword: new FormControl(null,
         {validators: NgxValidators.matchPassword('password')})
     });

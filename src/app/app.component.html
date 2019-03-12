@@ -10,8 +10,37 @@
             <input type="text"
                    formControlName="name"
                    class="form-control"
-                   [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
+                   [ngClass]="{'bg-danger': (!myForm.controls['name'].valid && myForm.controls['name'].touched)}"/>
             <validation-error [errorClass]="'text-danger'" [control]="myForm.get('name')"></validation-error>
+          </div>
+
+          <div class="form-group">
+            <label>Number</label>
+            <input type="text"
+                   formControlName="number"
+                   class="form-control"
+                   [ngClass]="{'bg-danger': (!myForm.controls['number'].valid && myForm.controls['number'].touched)}"/>
+            <validation-error [errorClass]="'text-danger'" [control]="myForm.get('number')"></validation-error>
+          </div>
+
+          <div class="form-group">
+            <label>Password</label>
+            <p style="font-size: small">should contain number and uppercase letter and lower case letter and length should more than 7</p>
+            <input type="text"
+                   formControlName="password"
+                   class="form-control"
+                   [ngClass]="{'bg-danger': (!myForm.controls['password'].valid && myForm.controls['password'].touched)}"/>
+            <validation-error [errorClass]="'text-danger'" [control]="myForm.get('password')"></validation-error>
+          </div>
+
+
+          <div class="form-group">
+            <label>Repeat Password</label>
+            <input type="text"
+                   formControlName="repeatPassword"
+                   class="form-control"
+                   [ngClass]="{'bg-danger': (!myForm.controls['repeatPassword'].valid && myForm.controls['repeatPassword'].touched)}"/>
+            <validation-error [errorClass]="'text-danger'" [control]="myForm.get('repeatPassword')"></validation-error>
           </div>
 
           <div class="form-group">
@@ -22,73 +51,3 @@
     </div>
   </div>
 </div>
-
-
-<!--The content below is only a placeholder and can be replaced.-->
-<form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit(myForm)" id="checkout-form" *ngIf="false"
-      class="smart-form">
-
-  <fieldset>
-    <section class="col col-6">
-      <label class="input">
-        Name
-        <span style="color: red">*</span>
-        <input type="text"
-               formControlName="name"
-               name="name"
-               placeholder="">
-        <validation-error [control]="myForm.get('name')"></validation-error>
-      </label>
-    </section>
-
-    <section class="col col-6">
-      <label class="input">
-        Number
-        <span style="color: red">*</span>
-        <input type="text"
-               formControlName="number"
-               name="number"
-               placeholder="">
-        <validation-error [control]="myForm.get('number')"></validation-error>
-      </label>
-    </section>
-
-
-    <div class="row">
-      <section class="col col-6">
-        <label class="input">
-          Password
-          <span style="color: red">*</span>
-          <input type="password"
-                 formControlName="password"
-                 name="password"
-                 placeholder="">
-          <validation-error [control]="myForm.get('password')"></validation-error>
-        </label>
-      </section>
-
-      <section class="col col-6">
-        <label class="input">
-          Repeat Password
-          <span style="color: red">*</span>
-          <input type="repeatPassword"
-                 formControlName="repeatPassword"
-                 name="repeatPassword"
-                 placeholder="">
-          <validation-error [control]="myForm.get('repeatPassword')"></validation-error>
-        </label>
-      </section>
-    </div>
-
-  </fieldset>
-
-
-  <footer>
-    <button type="submit" class="btn btn-primary">
-      Submit
-    </button>
-    <button type="button" class="btn btn-label">
-      Cancel
-    </button>
-  </footer>
-</form>
