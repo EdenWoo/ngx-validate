@@ -74,7 +74,6 @@ export class NgxValidators {
     };
   }
 
-
   /**
    * This control is required if the input control has value.
    * */
@@ -133,6 +132,14 @@ export class NgxValidators {
     if (control.value && !regexp.test(control.value)) {
       return {numberLetterSpace: true};
     }
+  }
+
+  static noBlank(control: FormControl): { [key: string]: boolean } {
+    const pattern = '\\s';
+    if (new RegExp(pattern).test(control.value)) {
+      return {'noBlankError': true};
+    }
+    return undefined;
   }
 
 }
