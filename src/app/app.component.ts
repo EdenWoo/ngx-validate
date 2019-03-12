@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {NgxValidateService} from '../../projects/ngx-validate/src/lib/ngx-validate.service';
-import {NgxValidators} from '../../projects/ngx-validate/src/lib/ngx-validators';
-import {validate} from 'codelyzer/walkerFactory/walkerFn';
 import {HttpClient} from '@angular/common/http';
+import {NgxValidateService, NgxValidators} from 'ngx-validate';
 
 @Component({
   selector: 'app-root',
