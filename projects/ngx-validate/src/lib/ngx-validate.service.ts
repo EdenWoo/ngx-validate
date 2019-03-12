@@ -9,6 +9,9 @@ export class NgxValidateService {
   constructor() {
   }
 
+  /**
+   * This method will mark each formControl in the form as touched.
+   * */
   validateAllFormFields(formGroup: FormGroup | any) {
     Object.keys(formGroup.controls).forEach(field => {
       const control = formGroup.get(field);
