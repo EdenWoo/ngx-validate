@@ -10,7 +10,7 @@ export interface ValidationResult {
 // interface AsyncValidatorFn {
 //   (c: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null>;
 // }
-
+// @dynamic
 export class NgxValidators {
   /**
    * Test if the input is number.
