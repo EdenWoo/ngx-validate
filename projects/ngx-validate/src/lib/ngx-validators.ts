@@ -1,7 +1,14 @@
-import {FormControl} from '@angular/forms';
+import {AbstractControl, FormControl, ValidationErrors} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
 
 export interface ValidationResult {
   [key: string]: boolean;
+}
+
+interface AsyncValidatorFn {
+  (c: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null>;
 }
 
 export class NgxValidators {
@@ -145,4 +152,35 @@ export class NgxValidators {
     return undefined;
   }
 
+  /**
+   * Validate from backend if this field is duplicate or not.
+   * Input url string and HttpClient and the validator will post to your url,
+   * if the response is equal to true -> not duplicate
+   * if the response is not equal to true -> duplicate
+   * */
+  static asyncDuplicate(url: string, http: HttpClient): AsyncValidatorFn {
+    return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
+      if (control.value) {
+        return http.post(url, control.value).pipe(map(
+          res => {
+            // compare value only here
+            if (res == 'true') {
+              return null;
+            } else {
+              return {duplicateError: true};
+            }
+          }, err => {
+            return {duplicateError: true};
+          }
+        ), catchError((err: any) => {
+          return null;
+        }));
+      } else {
+        return new Promise((resolve, reject) => {
+            resolve(null);
+          }
+        );
+      }
+    };
+  }
 }
