@@ -7,9 +7,9 @@ export interface ValidationResult {
   [key: string]: boolean;
 }
 
-interface AsyncValidatorFn {
-  (c: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null>;
-}
+// interface AsyncValidatorFn {
+//   (c: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null>;
+// }
 
 export class NgxValidators {
   /**
@@ -157,7 +157,7 @@ export class NgxValidators {
    * if the response is equal to true -> not duplicate
    * if the response is not equal to true -> duplicate
    * */
-  static asyncDuplicate(url: string, http: HttpClient, expectValue: any): AsyncValidatorFn {
+  static asyncDuplicate(url: string, http: HttpClient, expectValue: any) {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
       if (control.value) {
         return http.get(url, control.value).pipe(map(
