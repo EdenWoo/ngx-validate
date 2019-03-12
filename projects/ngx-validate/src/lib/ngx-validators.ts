@@ -11,6 +11,7 @@ interface AsyncValidatorFn {
   (c: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null>;
 }
 
+// https://github.com/ng-packagr/ng-packagr/issues/696
 // @dynamic
 export class NgxValidators {
   /**
