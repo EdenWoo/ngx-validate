@@ -55,6 +55,7 @@ export class AppComponent {
   onSubmit({value, valid}: { value: any, valid: boolean }) {
     if (valid) {
       console.log(value);
+      alert(JSON.stringify(value));
     } else {
       console.log(this.myForm);
       Object.keys(this.myForm.controls).forEach(key => {
