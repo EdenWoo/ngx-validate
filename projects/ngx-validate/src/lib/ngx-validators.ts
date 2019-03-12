@@ -5,7 +5,11 @@ export interface ValidationResult {
 }
 
 export class NgxValidators {
-  // Allow only number or + or - or .
+  /**
+   * Test if the input is number.
+   * Allow only number or + or - or .
+   * If not number, return isNumberError object.
+   * */
   static isNumber(control: FormControl): ValidationResult {
     const customRegexp = /^[\-\+]?[0-9]*(\.[0-9]+)?$/;
     if (control.value && !customRegexp.test(control.value)) {
@@ -13,11 +17,15 @@ export class NgxValidators {
     }
   }
 
+  /**
+   * Test if the password strong enough.
+   * Password should contain number and uppercase letter and lower case letter and length should more than 7
+   * If not strong enough, return strongPasswordError object.
+   * */
   public static strongPassword(control: FormControl): ValidationResult {
     const hasNumber = /\d/.test(control.value);
     const hasUpper = /[A-Z]/.test(control.value);
     const hasLower = /[a-z]/.test(control.value);
-    // console.log('Num, Upp, Low', hasNumber, hasUpper, hasLower);
     const valid = hasNumber && hasUpper && hasLower && control.value.length > 7;
     if (!valid) {
       // return what´s not valid
@@ -27,6 +35,10 @@ export class NgxValidators {
   }
 
 
+  /**
+   * Compare two password to validate if they are match
+   * If not match, return matchPasswordError object.
+   * */
   static matchPassword(repeatPassword: string) {
 
     let thisControl: FormControl;
