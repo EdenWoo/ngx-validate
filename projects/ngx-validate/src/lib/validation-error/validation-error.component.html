@@ -5,7 +5,7 @@
   <p [ngClass]="errorClass" *ngIf="control.hasError('max')">The field is too large</p>
   <p [ngClass]="errorClass" *ngIf="control.hasError('minlength')">The field is too short</p>
   <p [ngClass]="errorClass" *ngIf="control.hasError('maxlength')">The field is too long</p>
-  <p [ngClass]="errorClass" *ngIf="control.hasError('isNumberError')">Only number and '+', '-', '.' allowed</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('isNumberError')">Only number or '+' or '-' or '.' allowed</p>
   <p [ngClass]="errorClass" *ngIf="control.hasError('strongPasswordError')">The password is not strong enough</p>
   <p [ngClass]="errorClass" *ngIf="control.hasError('matchPasswordError')">The password is not match</p>
   <p [ngClass]="errorClass" *ngIf="control.hasError('numberLetterOnlyError')">The field allows number or letter only</p>

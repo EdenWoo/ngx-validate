@@ -153,17 +153,17 @@ export class NgxValidators {
 
   /**
    * Validate from backend if this field is duplicate or not.
-   * Input url string and HttpClient and the validator will post to your url,
+   * Input url string and HttpClient and the validator will get to your url,
    * if the response is equal to true -> not duplicate
    * if the response is not equal to true -> duplicate
    * */
-  static asyncDuplicate(url: string, http: HttpClient): AsyncValidatorFn {
+  static asyncDuplicate(url: string, http: HttpClient, expectValue: any): AsyncValidatorFn {
     return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
       if (control.value) {
-        return http.post(url, control.value).pipe(map(
+        return http.get(url, control.value).pipe(map(
           res => {
             // compare value only here
-            if (res == 'true') {
+            if (res === expectValue) {
               return null;
             } else {
               return {duplicateError: true};

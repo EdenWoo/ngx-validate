@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {NgxValidateService} from '../../projects/ngx-validate/src/lib/ngx-validate.service';
 import {NgxValidators} from '../../projects/ngx-validate/src/lib/ngx-validators';
 import {validate} from 'codelyzer/walkerFactory/walkerFn';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent {
   public myForm: FormGroup;
 
   constructor(private formBuiler: FormBuilder,
+              private http: HttpClient,
               private ngxValidateService: NgxValidateService) {
     this.initFormControl();
   }
@@ -20,6 +22,13 @@ export class AppComponent {
   initFormControl() {
     this.myForm = this.formBuiler.group({
       name: new FormControl(null, {validators: [Validators.required]}
+      ),
+      asyncValidate: new FormControl(null, {
+          validators: [],
+          asyncValidators: [NgxValidators.asyncDuplicate(
+            'http://dummy.restapiexample.com/api/v1/employee/1', this.http, true
+          )]
+        }
       ),
       requiredWhenNameHasValue: new FormControl(null, {
           validators: [NgxValidators.requiredIfInputHasValue('name')]
