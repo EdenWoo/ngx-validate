@@ -134,6 +134,9 @@ export class NgxValidators {
     }
   }
 
+  /**
+   * should not contain blank
+   * */
   static noBlank(control: FormControl): { [key: string]: boolean } {
     const pattern = '\\s';
     if (new RegExp(pattern).test(control.value)) {
