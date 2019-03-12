@@ -21,6 +21,10 @@ export class AppComponent {
     this.myForm = this.formBuiler.group({
       name: new FormControl(null, {validators: [Validators.required]}
       ),
+      requiredWhenNameHasValue: new FormControl(null, {
+          validators: [NgxValidators.requiredIfInputHasValue('name')]
+        }
+      ),
       number: new FormControl('abcd',
         {validators: [Validators.required, NgxValidators.isNumber]}
       ),

@@ -110,8 +110,7 @@ export class NgxValidators {
       if (!inputControl) {
         return null;
       }
-
-      if (inputControl.value !== '' && (thisControl.value === '' || thisControl.value === undefined)) {
+      if (inputControl.value && !thisControl.value) {
         return {
           required: true
         };
