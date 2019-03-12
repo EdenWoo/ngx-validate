@@ -28,6 +28,9 @@ export class AppComponent {
       number: new FormControl('abcd',
         {validators: [Validators.required, NgxValidators.isNumber]}
       ),
+      numberLetterOnly: new FormControl(null,
+        {validators: [NgxValidators.numberLetterOnly]}
+      ),
       password: new FormControl(null,
         {
           validators: [

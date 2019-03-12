@@ -123,8 +123,9 @@ export class NgxValidators {
   /**
    * only allow letters/numbers
    * */
-  static numberLetterOnly(control: FormControl): { [key: string]: any } {
+  static numberLetterOnly(control: FormControl): ValidationResult {
     const regexp = /^[a-zA-Z0-9]*$/;
+    debugger
     if (control.value && !regexp.test(control.value)) {
       return {numberLetterOnlyError: true};
     }
@@ -133,7 +134,7 @@ export class NgxValidators {
   /**
    * only allow letters/numbers/space
    * */
-  static numberLetterSpaceOnly(control: FormControl): { [key: string]: any } {
+  static numberLetterSpaceOnly(control: FormControl): ValidationResult {
     const regexp = /^[A-Za-z0-9 _]*$/;
     if (control.value && !regexp.test(control.value)) {
       return {numberLetterSpace: true};

@@ -15,7 +15,7 @@
           </div>
 
           <div class="form-group">
-            <label>Required When Name HasValue</label>
+            <label>Required When Name Has Value</label>
             <input type="text"
                    formControlName="requiredWhenNameHasValue"
                    class="form-control"
@@ -30,6 +30,15 @@
                    class="form-control"
                    [ngClass]="{'bg-danger': (!myForm.controls['number'].valid && myForm.controls['number'].touched)}"/>
             <validation-error [errorClass]="'text-danger'" [control]="myForm.get('number')"></validation-error>
+          </div>
+
+          <div class="form-group">
+            <label>Number or Letter Only</label>
+            <input type="text"
+                   formControlName="numberLetterOnly"
+                   class="form-control"
+                   [ngClass]="{'bg-danger': (!myForm.controls['numberLetterOnly'].valid && myForm.controls['numberLetterOnly'].touched)}"/>
+            <validation-error [errorClass]="'text-danger'" [control]="myForm.get('numberLetterOnly')"></validation-error>
           </div>
 
           <div class="form-group">
