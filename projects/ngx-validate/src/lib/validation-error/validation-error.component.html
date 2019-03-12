@@ -1,15 +1,15 @@
-<div class="validation error" *ngIf="control?.touched">
-  <span *ngIf="control.hasError('required')">Field is required</span>
-  <span *ngIf="control.hasError('email')">The email is invalid</span>
-  <span *ngIf="control.hasError('min')">The field is too small</span>
-  <span *ngIf="control.hasError('max')">The field is too large</span>
-  <span *ngIf="control.hasError('minlength')">The field is too short</span>
-  <span *ngIf="control.hasError('maxlength')">The field is too long</span>
-  <span *ngIf="control.hasError('isNumberError')">Only number and '+', '-', '.' allowed</span>
-  <span *ngIf="control.hasError('strongPasswordError')">The password is not strong enough</span>
-  <span *ngIf="control.hasError('matchPasswordError')">The password is not match</span>
-  <span *ngIf="control.hasError('numberLetterOnlyError')">The field allows number or letter only</span>
-  <span *ngIf="control.hasError('numberLetterSpace')">The field allows space or letter only</span>
-  <span *ngIf="control.hasError('noBlankError')">The field should not contain blank</span>
-  <span *ngIf="control.hasError('duplicateError')">The field duplicate with server</span>
+<div *ngIf="control?.touched">
+  <p [ngClass]="errorClass" *ngIf="control.hasError('required')">Field is required</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('email')">The email is invalid</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('min')">The field is too small</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('max')">The field is too large</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('minlength')">The field is too short</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('maxlength')">The field is too long</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('isNumberError')">Only number and '+', '-', '.' allowed</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('strongPasswordError')">The password is not strong enough</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('matchPasswordError')">The password is not match</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('numberLetterOnlyError')">The field allows number or letter only</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('numberLetterSpace')">The field allows space or letter only</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('noBlankError')">The field should not contain blank</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('duplicateError')">The field duplicate with server</p>
 </div>

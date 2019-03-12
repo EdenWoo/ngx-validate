@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ValidationErrorComponent
+    ValidationErrorComponent,
   ],
   imports: [
     CommonModule,

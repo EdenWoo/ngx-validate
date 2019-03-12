@@ -8,6 +8,7 @@ import {AbstractControl, FormControl} from '@angular/forms';
 export class ValidationErrorComponent implements OnInit {
 
   @Input() control: AbstractControl;
+  @Input() errorClass: string;
 
   constructor() {
 
