@@ -72,7 +72,7 @@ export const FormConfig: ControlConfig[] = [
     type: 'input',
     label: 'Repeat Password',
     inputType: 'password',
-    name: 'password',
+    name: 'repeatPassword',
     validations: [
       {
         name: 'matchPasswordError',
