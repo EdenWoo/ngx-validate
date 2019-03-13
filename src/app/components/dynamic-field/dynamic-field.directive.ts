@@ -26,6 +26,7 @@ export class DynamicFieldDirective implements OnInit {
   }
 
   ngOnInit() {
+    // dynamically create component with ComponentFactoryResolver according to field name
     const factory = this.cfr.resolveComponentFactory(
       componentMapper[this.field.type]
     );
