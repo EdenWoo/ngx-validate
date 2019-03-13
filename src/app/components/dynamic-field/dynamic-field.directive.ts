@@ -3,10 +3,12 @@ import {FormGroup} from '@angular/forms';
 import {InputComponent} from '../input/input.component';
 import {ButtonComponent} from '../button/button.component';
 import {ControlConfig} from '../../interface/control-config.interface';
+import {SelectComponent} from '../select/select.component';
 
 const componentMapper = {
   input: InputComponent,
-  button: ButtonComponent
+  button: ButtonComponent,
+  select: SelectComponent
 };
 
 @Directive({

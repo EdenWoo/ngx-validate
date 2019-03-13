@@ -17,6 +17,20 @@ export const FormConfig: ControlConfig[] = [
     ]
   },
   {
+    type: 'select',
+    label: 'Country',
+    name: 'country',
+    value: '',
+    options: ['', 'India', 'UAE', 'UK', 'US'],
+    validations: [
+      {
+        name: 'required',
+        validator: Validators.required,
+        message: 'Country Required'
+      }
+    ]
+  },
+  {
     type: 'input',
     label: 'Required When Name Has Value',
     inputType: 'text',

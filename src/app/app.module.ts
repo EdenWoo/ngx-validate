@@ -10,6 +10,7 @@ import {DynamicFormComponent} from './components/dynamic-form/dynamic-form.compo
 import {InputComponent} from './components/input/input.component';
 import {ButtonComponent} from './components/button/button.component';
 import {DynamicFieldDirective} from './components/dynamic-field/dynamic-field.directive';
+import {SelectComponent} from './components/select/select.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {DynamicFieldDirective} from './components/dynamic-field/dynamic-field.di
     DynamicFormComponent,
     InputComponent,
     ButtonComponent,
+    SelectComponent,
     DynamicFieldDirective
   ],
   imports: [
@@ -30,7 +32,8 @@ import {DynamicFieldDirective} from './components/dynamic-field/dynamic-field.di
   ],
   entryComponents: [
     InputComponent,
-    ButtonComponent
+    ButtonComponent,
+    SelectComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
