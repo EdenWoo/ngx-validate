@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormControl, FormArray,} from '@angular/forms';
-import {ControlConfig} from '../interface/control-config.interface';
+import {ControlConfig} from '../../interface/control-config.interface';
 
 @Component({
   exportAs: 'dynamicForm',

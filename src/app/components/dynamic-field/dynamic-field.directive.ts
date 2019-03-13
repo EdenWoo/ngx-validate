@@ -2,7 +2,7 @@ import {ComponentFactoryResolver, Directive, Input, OnInit, ViewContainerRef} fr
 import {FormGroup} from '@angular/forms';
 import {InputComponent} from '../input/input.component';
 import {ButtonComponent} from '../button/button.component';
-import {ControlConfig} from '../interface/control-config.interface';
+import {ControlConfig} from '../../interface/control-config.interface';
 
 const componentMapper = {
   input: InputComponent,

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {ControlConfig} from '../interface/control-config.interface';
+import {ControlConfig} from '../../interface/control-config.interface';
 
 @Component({
   selector: 'app-button',

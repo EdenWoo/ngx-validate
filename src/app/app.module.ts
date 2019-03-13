@@ -5,11 +5,12 @@ import {AppComponent} from './app.component';
 import {NgxValidateModule} from '../../projects/ngx-validate/src/lib/ngx-validate.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {DynamicFormComponent} from './dynamic-form/dynamic-form.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {InputComponent} from './input/input.component';
-import {DynamicFieldDirective} from './dynamic-field/dynamic-field.directive';
-import {ButtonComponent} from './button/button.component';
+import {DynamicFormComponent} from './components/dynamic-form/dynamic-form.component';
+import {InputComponent} from './components/input/input.component';
+import {ButtonComponent} from './components/button/button.component';
+import {DynamicFieldDirective} from './components/dynamic-field/dynamic-field.directive';
+
 
 @NgModule({
   declarations: [
