@@ -29,7 +29,6 @@ Currently support data-driven form only.
 Html
 
 ```
-<!-- main app container -->
 <div class="jumbotron">
   <div class="container">
     <div class="row">
@@ -43,6 +42,21 @@ Html
                    class="form-control"
                    [ngClass]="{'bg-danger': (!myForm.controls['name'].valid && myForm.controls['name'].touched)}"/>
             <validation-error [errorClass]="'text-danger'" [control]="myForm.get('name')"></validation-error>
+          </div>
+
+          <div class="form-group">
+            <label>Country</label>
+            <select type="text"
+                   formControlName="country"
+                   class="form-control"
+                   [ngClass]="{'bg-danger': (!myForm.controls['country'].valid && myForm.controls['country'].touched)}">
+                   <option value=""></option>
+                   <option value="India">India</option>
+                   <option value="UAE">UAE</option>
+                   <option value="UK">UK</option>
+                   <option value="US">US</option>
+                   </select>
+            <validation-error [errorClass]="'text-danger'" [control]="myForm.get('country')"></validation-error>
           </div>
 
           <div class="form-group">
@@ -114,7 +128,16 @@ Html
 Component:
 
 ```
-  class AppComponent {
+  import {Component} from '@angular/core';
+  import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+  import {HttpClient} from '@angular/common/http';
+  import {NgxValidateService, NgxValidators} from 'ngx-validate';
+  @Component({
+    selector: 'my-app',
+    templateUrl: './app.component.html',
+    styleUrls: [ './app.component.css' ]
+  })
+  export class AppComponent {
     public myForm: FormGroup;
   
     constructor(private formBuiler: FormBuilder,
@@ -133,6 +156,8 @@ Component:
               'http://dummy.restapiexample.com/api/v1/employee/1', this.http, true
             )]
           }
+        ),
+        country: new FormControl(null, {validators: [Validators.required]}
         ),
         requiredWhenNameHasValue: new FormControl(null, {
             validators: [NgxValidators.requiredIfInputHasValue('name')]
@@ -167,5 +192,7 @@ Component:
         });
       }
     }
+  }
+
 ```
 
