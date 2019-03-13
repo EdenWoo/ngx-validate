@@ -5,12 +5,7 @@ import {ControlConfig} from '../../interface/control-config.interface';
 @Component({
   exportAs: 'dynamicForm',
   selector: 'dynamic-form',
-  template: `
-    <form class='dynamic-form' [formGroup]='form' (submit)='onSubmit($event)'>
-      <ng-container *ngFor='let field of fields;' dynamicControl [field]='field' [group]='form'>
-      </ng-container>
-    </form>
-  `,
+  templateUrl: './dynamic-form.component.html',
   styles: []
 })
 export class DynamicFormComponent implements OnInit {

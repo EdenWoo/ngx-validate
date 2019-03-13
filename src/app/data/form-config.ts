@@ -17,6 +17,19 @@ export const FormConfig: ControlConfig[] = [
     ]
   },
   {
+    type: 'input',
+    label: 'Checkbox',
+    inputType: 'checkbox',
+    name: 'Checkbox',
+    validations: [
+      {
+        name: 'required',
+        validator: Validators.required,
+        message: 'Username Required'
+      }
+    ]
+  },
+  {
     type: 'select',
     label: 'Country',
     name: 'country',
