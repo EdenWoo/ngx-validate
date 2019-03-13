@@ -1,0 +1,13 @@
+<div class="form-group" [formGroup]="group">
+  <label>{{field.label}}</label>
+  <input [formControlName]="field.name"
+         [placeholder]="field.label"
+         [type]="field.inputType"
+         [ngClass]="{'bg-danger': (!group.get(field.name).valid && group.get(field.name).touched)}"
+         class="form-control"/>
+  <ng-container *ngFor="let validation of field.validations;">
+    <span
+      class="text-danger"
+      *ngIf="group.get(field.name).hasError(validation.name) && group.get(field.name).touched">{{validation.message}}</span>
+  </ng-container>
+</div>

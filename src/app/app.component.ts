@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {NgxValidateService, NgxValidators} from 'ngx-validate';
+import {DynamicFormComponent} from './dynamic-form/dynamic-form.component';
+import {ControlConfig} from './interface/control-config.interface';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,31 @@ import {NgxValidateService, NgxValidators} from 'ngx-validate';
 })
 export class AppComponent {
   public myForm: FormGroup;
+
+  @ViewChild(DynamicFormComponent) form: DynamicFormComponent;
+  regConfig: ControlConfig[] = [
+    {
+      type: 'input',
+      label: 'Username',
+      inputType: 'text',
+      name: 'name',
+      validations: [
+        {
+          name: 'required',
+          validator: Validators.required,
+          message: 'Username Required'
+        },
+        {
+          name: 'pattern',
+          validator: Validators.pattern('^[a-zA-Z]+$'),
+          message: 'Accept only text'
+        }
+      ]
+    },
+    {
+      type: 'button',
+      label: 'Save'
+    }];
 
   constructor(private formBuiler: FormBuilder,
               private http: HttpClient,
@@ -60,5 +87,8 @@ export class AppComponent {
         this.ngxValidateService.validateAllFormFields(this.myForm);
       });
     }
+  }
+
+  submit(value: any) {
   }
 }
