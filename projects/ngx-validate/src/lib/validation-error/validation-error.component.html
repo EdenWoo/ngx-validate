@@ -12,4 +12,5 @@
   <p [ngClass]="errorClass" *ngIf="control.hasError('numberLetterSpace')">The field allows space or letter only</p>
   <p [ngClass]="errorClass" *ngIf="control.hasError('noBlankError')">The field should not contain blank</p>
   <p [ngClass]="errorClass" *ngIf="control.hasError('duplicateError')">The field duplicate with server</p>
+  <p [ngClass]="errorClass" *ngIf="control.hasError('isUrlError')">The field should be url</p>
 </div>

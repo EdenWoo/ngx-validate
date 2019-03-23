@@ -1,6 +1,6 @@
 import {ControlConfig} from '../interface/control-config.interface';
 import {Validators} from '@angular/forms';
-import {NgxValidators} from 'ngx-validate';
+import {NgxValidators} from '../../../projects/ngx-validate/src/lib/ngx-validators';
 
 export const FormConfig: ControlConfig[] = [
   {
@@ -13,6 +13,19 @@ export const FormConfig: ControlConfig[] = [
         name: 'required',
         validator: Validators.required,
         message: 'Username Required'
+      }
+    ]
+  },
+  {
+    type: 'input',
+    label: 'Url',
+    inputType: 'text',
+    name: 'url',
+    validations: [
+      {
+        name: 'isUrlError',
+        validator: NgxValidators.isUrl,
+        message: 'Should be a url'
       }
     ]
   },
